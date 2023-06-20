@@ -10,23 +10,21 @@ import {
 import {LoginContext} from '../contexts/LoginContext';
 
 const Login = () => {
-  const [isLogin, setLogin] = useState(false);
+  const {isLogin, setLogin} = useContext(LoginContext);
 
   return (
-    <LoginContext.Provider value={isLogin}>
-      <View style={styles.container}>
-        <Text>{'this is a Login Page'}</Text>
+    <View style={styles.container}>
+      <Text>{'this is a Login Page'}</Text>
 
-        <TouchableOpacity
-          onPress={() => {
-            setLogin(true);
-          }}>
-          <Text>{'Login'}</Text>
-        </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          setLogin(true);
+        }}>
+        <Text>{'Login'}</Text>
+      </TouchableOpacity>
 
-        {/* <TextInput */}
-      </View>
-    </LoginContext.Provider>
+      {/* <TextInput */}
+    </View>
   );
 };
 
