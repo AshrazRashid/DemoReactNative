@@ -14,16 +14,15 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Text>{'this is a Login Page'}</Text>
+      <Text>{'Login Page'}</Text>
 
       <TouchableOpacity
+        style={styles.button}
         onPress={() => {
           setLogin(true);
         }}>
-        <Text>{'Login'}</Text>
+        <Text style={styles.whiteText}>{'Login'}</Text>
       </TouchableOpacity>
-
-      {/* <TextInput */}
     </View>
   );
 };
@@ -33,7 +32,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+  },
+  button: {
+    backgroundColor: 'grey',
+    padding: 10,
+    borderRadius: 10,
+  },
+
+  whiteText: {
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
 
