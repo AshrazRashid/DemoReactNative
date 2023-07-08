@@ -1,30 +1,38 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {decrement, increment} from '../../counterSlice';
 
 const CounterScreen = () => {
   const [count, setCount] = useState(0);
+  const counter = useSelector(state => state.counter);
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row'}}>
         <Text style={styles.text}>{'Count: '}</Text>
-        <Text style={styles.text}>{count}</Text>
+        <Text style={styles.text}>{counter}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {
-            setCount(count + 1);
-          }}>
+          onPress={() => dispatch(increment())}
+          // onPress={() => {
+          //   setCount(count + 1);
+          // }}
+        >
           <Text style={styles.whiteText}>{'Count + 1'}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {
-            setCount(count - 1);
-          }}>
+          onPress={() => dispatch(decrement())}
+          // onPress={() => {
+          //   setCount(count - 1);
+          // }}
+        >
           <Text style={styles.whiteText}>{'Count - 1'}</Text>
         </TouchableOpacity>
       </View>
